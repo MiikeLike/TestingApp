@@ -40,7 +40,7 @@ struct UpdateNoteView: View {
                     viewModel.updateNoteWith(id: id, newTitle: title, newText: text) // Botón para crear una nueva nota utilizando la función del ViewModel.
                         dismiss()//Cuando pulsamos crear nota cierra automaticamente la pantalla.
                 } label: {
-                    Text("Modificar Nota") // Etiqueta del botón de creación de nota, con estilo en negrita.
+                    Text("Guardar") // Etiqueta del botón de creación de nota, con estilo en negrita.
                         .bold()
                 }
             }

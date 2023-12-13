@@ -26,8 +26,9 @@ struct ContentView: View {
                 }
             }
             .toolbar{
-                ToolbarItem(placement: .status) {
-                    Button(action: { showCreateNote.toggle()}, label: {
+                ToolbarItem ( placement: .status ) {
+                    Button( action: { showCreateNote.toggle ()
+                    }, label: {
                         Label("Crear Nota", systemImage: "square.and.pencil")
                             .labelStyle(TitleAndIconLabelStyle())
                     })
@@ -37,12 +38,12 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Notas")
-            navigationDestination(for: Note.self, destination: { note in
+            .navigationDestination(for: Note.self, destination: { note in
                 UpdateNoteView(viewModel: viewModel, id: note.id, title: note.title, text: note.getText)
             })
-            .fullScreenCover(isPresented: $showCreateNote, content: {
+            .fullScreenCover(isPresented: $showCreateNote) {
                 CreateNoteView(viewModel: viewModel)
-            })
+            }
         }
     }
 }
