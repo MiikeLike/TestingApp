@@ -70,13 +70,33 @@ final class ViewModelTest: XCTestCase {
         let newText = "New Text"
         
         // Se intenta obtener el ID de la primera nota en el ViewModel.
-        if let id = viewModel.notes.first?.id {
+        if let identifier = viewModel.notes.first?.identifier {
             // Si se obtiene un ID, se procede con la actualización de la nota.
-            viewModel.updateNoteWith(id: id, newTitle: newTitle, newText: newText)
+            viewModel.updateNoteWith(identifier: identifier, newTitle: newTitle, newText: newText)
             
             // Se verifica que los atributos de la nota se hayan actualizado correctamente.
             XCTAssertEqual(viewModel.notes.first?.text, newText)
             XCTAssertEqual(viewModel.notes.first?.title, newTitle)
+        } else {
+            // Si no se puede obtener el ID, la prueba falla.
+            XCTFail("Note was created.")
+        }
+    }
+    func testRemoveNote() {
+        // Datos de prueba iniciales.
+        let title = "Test Title"
+        let text = "Test Text"
+
+        // Se crea una nota con los datos de prueba iniciales.
+        viewModel.createNotewith(title: title, text: text)
+        
+        // Se intenta obtener el ID de la primera nota en el ViewModel.
+        if let identifier = viewModel.notes.first?.identifier {
+            // Si se obtiene un ID, se procede con la eliminación de la nota.
+            viewModel.removeNoteWith(identifier: identifier)
+            
+            // Se verifica que el array de notas esté vacío después de la eliminación.
+            XCTAssertTrue(viewModel.notes.isEmpty)
         } else {
             // Si no se puede obtener el ID, la prueba falla.
             XCTFail("Note was created.")

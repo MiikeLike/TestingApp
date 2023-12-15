@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UpdateNoteView: View {
     var viewModel: ViewModel // ViewModel asociado a la vista.
-    let id: UUID
+    let identifier: UUID
     @State var title: String = "" // Variable de estado para almacenar el título de la nota.
     @State var text: String = "" // Variable de estado para almacenar el texto de la nota.
     @Environment(\.dismiss) private var dismiss // Entorno que proporciona la capacidad de descartar la vista.
@@ -26,7 +26,7 @@ struct UpdateNoteView: View {
                 }
             }
             Button(action: {
-                viewModel.removeNoteWith(id: id)
+                viewModel.removeNoteWith(identifier: identifier)
                 dismiss()
             }, label: {
                 Text("Eliminar Nota").foregroundStyle(.red).underline()
@@ -38,7 +38,7 @@ struct UpdateNoteView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    viewModel.updateNoteWith(id: id, newTitle: title, newText: text) // Botón para crear una nueva nota utilizando la función del ViewModel.
+                    viewModel.updateNoteWith(identifier: identifier, newTitle: title, newText: text) // Botón para crear una nueva nota utilizando la función del ViewModel.
                         dismiss()//Cuando pulsamos crear nota cierra automaticamente la pantalla.
                 } label: {
                     Text("Guardar") // Etiqueta del botón de creación de nota, con estilo en negrita.
@@ -53,6 +53,6 @@ struct UpdateNoteView: View {
 
 #Preview {
     NavigationStack{
-        UpdateNoteView(viewModel: .init(), id: .init(), title: "Prueba título")
+        UpdateNoteView(viewModel: .init(), identifier: .init(), title: "Prueba título")
     }
 }

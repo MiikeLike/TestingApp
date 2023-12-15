@@ -23,14 +23,14 @@ class ViewModel {
         notes.append(note)//Hemos añadido el metodo en el arrays de notes
     }
     //Función de actualizar notas
-    func updateNoteWith(id: UUID, newTitle: String, newText: String?) {
-        if let index = notes.firstIndex(where: { $0.id == id }) {
-            let updateNote = Note(id: id, title: newTitle, text: newText, createdAt: notes[index].createdAt)
+    func updateNoteWith(identifier: UUID, newTitle: String, newText: String?) {
+        if let index = notes.firstIndex(where: { $0.identifier == identifier }) {
+            let updateNote = Note(identifier: identifier, title: newTitle, text: newText, createdAt: notes[index].createdAt)
             notes[index] = updateNote
         }
     }
     //Función de eliminación
-    func removeNoteWith(id: UUID) {
-        notes.removeAll(where: {$0.id == id})
+    func removeNoteWith(identifier: UUID) {
+        notes.removeAll(where: {$0.identifier == identifier})
     }
 }

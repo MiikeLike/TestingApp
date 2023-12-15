@@ -17,6 +17,7 @@
 		6EB242912B29AA8C00017956 /* CreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB242902B29AA8C00017956 /* CreateNoteView.swift */; };
 		6EB242932B29B28400017956 /* UpdateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB242922B29B28400017956 /* UpdateNoteView.swift */; };
 		6EB2429C2B2A4AA400017956 /* TestNotasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB2429B2B2A4AA400017956 /* TestNotasTests.swift */; };
+		6EE9BBFF2B2C52890070BA61 /* NoteDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9BBFE2B2C52890070BA61 /* NoteDataBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		6EB242922B29B28400017956 /* UpdateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNoteView.swift; sourceTree = "<group>"; };
 		6EB242992B2A4AA000017956 /* TestNotasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestNotasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB2429B2B2A4AA400017956 /* TestNotasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNotasTests.swift; sourceTree = "<group>"; };
+		6EE9BBFE2B2C52890070BA61 /* NoteDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDataBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				6E2AAC512B28700D005D46B3 /* TestNotasApp.swift */,
 				6E2AAC532B28700D005D46B3 /* ContentView.swift */,
 				6E2AAC642B287509005D46B3 /* ViewModel.swift */,
+				6EE9BBFE2B2C52890070BA61 /* NoteDataBase.swift */,
 				6EB242942B2A498300017956 /* View */,
 				6E2AAC632B2874F4005D46B3 /* Model */,
 				6E2AAC572B28700F005D46B3 /* Assets.xcassets */,
@@ -230,6 +233,7 @@
 			files = (
 				6E2AAC652B287509005D46B3 /* ViewModel.swift in Sources */,
 				6E2AAC542B28700D005D46B3 /* ContentView.swift in Sources */,
+				6EE9BBFF2B2C52890070BA61 /* NoteDataBase.swift in Sources */,
 				6E2AAC522B28700D005D46B3 /* TestNotasApp.swift in Sources */,
 				6EB242932B29B28400017956 /* UpdateNoteView.swift in Sources */,
 				6EB242912B29AA8C00017956 /* CreateNoteView.swift in Sources */,
