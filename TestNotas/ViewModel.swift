@@ -10,26 +10,26 @@
 import Foundation
 import Observation
 
-@Observable//Implementación de metodo introducido en xCode 15, cualquier cambio realizado en notes será escuchado desde la vista y lo mostrará
+@Observable
 class ViewModel {
-    var notes: [Note]//Creamos el array de notas
-    //Creamos el inicializador y le damos un valor inicial a las notas del ViewModel añadimos un array vaicio []
+    var notes: [Note]
+    
     init(notes: [Note] = []) {
         self.notes = notes
     }
-    //Función de creación de notas(Lo realizamos en memoria)
+    
     func createNotewith(title: String, text: String) {
         let note: Note = .init(title: title, text: text, createdAt: .now)
-        notes.append(note)//Hemos añadido el metodo en el arrays de notes
+        notes.append(note)
     }
-    //Función de actualizar notas
+    
     func updateNoteWith(identifier: UUID, newTitle: String, newText: String?) {
         if let index = notes.firstIndex(where: { $0.identifier == identifier }) {
             let updateNote = Note(identifier: identifier, title: newTitle, text: newText, createdAt: notes[index].createdAt)
             notes[index] = updateNote
         }
     }
-    //Función de eliminación
+    
     func removeNoteWith(identifier: UUID) {
         notes.removeAll(where: {$0.identifier == identifier})
     }

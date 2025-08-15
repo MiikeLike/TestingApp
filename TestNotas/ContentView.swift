@@ -9,43 +9,42 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    var viewModel: ViewModel = .init() // ViewModel asociado a la vista, inicializado.
-    @State var showCreateNote: Bool = false // Estado para controlar la presentación de la vista de creación de notas.
+    var viewModel: ViewModel = .init()
+    @State var showCreateNote: Bool = false
     
     var body: some View {
-        NavigationStack { // Contenedor de navegación personalizado que puede manejar el apilamiento de vistas.
-            List { // Lista para mostrar las notas.
+        NavigationStack {
+            List {
                 ForEach(viewModel.notes) { note in
-                    NavigationLink(value: note) { // Enlace de navegación que lleva a la vista de actualización de notas.
-                        VStack(alignment: .leading) { // Vista vertical que contiene el título y el texto de la nota.
+                    NavigationLink(value: note) {
+                        VStack(alignment: .leading) {
                             Text(note.title)
-                                .foregroundStyle(.primary) // Estilo de primer plano para el título de la nota.
+                                .foregroundStyle(.primary)
                             Text(note.getText)
-                                .foregroundStyle(.secondary) // Estilo de primer plano para el texto de la nota.
+                                .foregroundStyle(.secondary)
                         }
                     }
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .status) { // Elemento de barra de herramientas en la barra de estado.
+                ToolbarItem(placement: .status) {
                     Button(action: {
-                        showCreateNote.toggle() // Botón para mostrar o ocultar la vista de creación de notas.
+                        showCreateNote.toggle()
                     }, label: {
-                        Label("Crear Nota", systemImage: "square.and.pencil") // Etiqueta y símbolo del botón de creación de notas.
-                            .labelStyle(TitleAndIconLabelStyle()) // Estilo para la etiqueta y el icono.
+                        Label("Crear Nota", systemImage: "square.and.pencil")
+                            .labelStyle(TitleAndIconLabelStyle())
                     })
-                    .buttonStyle(.bordered) // Estilo del botón con borde.
-                    .tint(.blue) // Tinte del botón.
-                    .bold() // Texto en negrita.
+                    .buttonStyle(.bordered)
+                    .tint(.blue)
+                    .bold()
                 }
             }
-            .navigationTitle("Notas") // Título de navegación para la vista principal.
+            .navigationTitle("Notas")
             .navigationDestination(for: Note.self, destination: { note in
-                // Configuración de la navegación a la vista de actualización de notas.
                 UpdateNoteView(viewModel: viewModel, identifier: note.identifier, title: note.title, text: note.getText)
             })
             .fullScreenCover(isPresented: $showCreateNote) {
-                CreateNoteView(viewModel: viewModel) // FullScreen para la vista de creación de notas.
+                CreateNoteView(viewModel: viewModel)
             }
         }
     }
